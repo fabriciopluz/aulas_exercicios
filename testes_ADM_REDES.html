@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Avaliativo: Modelos OSI e TCP/IP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .question input {
+            margin-right: 10px;
+        }
+        .result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste Avaliativo: Modelos OSI e TCP/IP</h1>
+    <form id="quizForm">
+        <!-- Questão 1 -->
+        <div class="question">
+            <h3>1. Qual camada do modelo OSI é responsável pelo roteamento de pacotes?</h3>
+            <input type="radio" name="q1" value="0">A) Camada de Enlace de Dados<br>
+            <input type="radio" name="q1" value="1">B) Camada de Rede<br>
+            <input type="radio" name="q1" value="0">C) Camada de Transporte<br>
+            <input type="radio" name="q1" value="0">D) Camada de Sessão<br>
+        </div>
+        
+        <!-- Questão 2 -->
+        <div class="question">
+            <h3>2. Quantas camadas o modelo TCP/IP possui?</h3>
+            <input type="radio" name="q2" value="0">A) 5<br>
+            <input type="radio" name="q2" value="1">B) 4<br>
+            <input type="radio" name="q2" value="0">C) 7<br>
+            <input type="radio" name="q2" value="0">D) 6<br>
+        </div>
+        
+        <!-- Questão 3 -->
+        <div class="question">
+            <h3>3. Qual camada do modelo OSI cuida da criptografia e da compressão de dados?</h3>
+            <input type="radio" name="q3" value="0">A) Camada de Aplicação<br>
+            <input type="radio" name="q3" value="0">B) Camada de Rede<br>
+            <input type="radio" name="q3" value="1">C) Camada de Apresentação<br>
+            <input type="radio" name="q3" value="0">D) Camada Física<br>
+        </div>
+        
+        <!-- Questão 4 -->
+        <div class="question">
+            <h3>4. Qual camada do modelo TCP/IP é equivalente às camadas de Sessão, Apresentação e Aplicação do modelo OSI?</h3>
+            <input type="radio" name="q4" value="1">A) Camada de Aplicação<br>
+            <input type="radio" name="q4" value="0">B) Camada de Transporte<br>
+            <input type="radio" name="q4" value="0">C) Camada de Internet<br>
+            <input type="radio" name="q4" value="0">D) Interface de Rede<br>
+        </div>
+        
+        <!-- Questão 5 -->
+        <div class="question">
+            <h3>5. Em qual camada do modelo OSI o protocolo TCP opera?</h3>
+            <input type="radio" name="q5" value="0">A) Camada de Rede<br>
+            <input type="radio" name="q5" value="1">B) Camada de Transporte<br>
+            <input type="radio" name="q5" value="0">C) Camada de Sessão<br>
+            <input type="radio" name="q5" value="0">D) Camada de Enlace de Dados<br>
+        </div>
+
+        <button type="button" onclick="verificarRespostas()">Verificar Respostas</button>
+    </form>
+
+    <div id="result" class="result"></div>
+
+    <script>
+        function verificarRespostas() {
+            var total = 5;
+            var score = 0;
+
+            // Respostas corretas
+            var respostasCorretas = ["q1:1", "q2:1", "q3:1", "q4:1", "q5:1"];
+
+            // Verificação das respostas
+            respostasCorretas.forEach(function(resposta) {
+                var partes = resposta.split(':');
+                var nomeQuestao = partes[0];
+                var valorCorreto = partes[1];
+
+                var respostaSelecionada = document.querySelector('input[name="' + nomeQuestao + '"]:checked');
+                if (respostaSelecionada && respostaSelecionada.value === valorCorreto) {
+                    score++;
+                }
+            });
+
+            // Exibição do resultado
+            var resultElement = document.getElementById('result');
+            resultElement.textContent = "Você acertou " + score + " de " + total + " questões.";
+        }
+    </script>
+</body>
+</html>
